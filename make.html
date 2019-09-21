@@ -60,7 +60,7 @@
     </div>
     <script type="text/javascript">
 
-        $("addBtn").on("click", function(){
+        $("#res-submit").on("click", function(){
         event.preventDefault();
         var newTable = {
             name: $("#res-name").val().trim(),
@@ -68,22 +68,14 @@
             email: $("#res-email").val().trim(),
             uniqueID: $("#res-id").val().trim()
         };
-    });
+    
 
        $.post("/api/tables", newTable)
         .then(function(data){
             console.log("Table added")
         });
-
-        //...Maybe need to include specific file path??? That's my only other thought...
-        var Cleave = require('cleave.js');
-
-        //There is a specific phone number formatting but it requires additional files, so I'm justing this format...
-        new Cleave('.input-phone', {
-            numericOnly: true,
-            blocks: [0, 3, 0, 3, 4],
-            delimiters: ["(", ")", " ", "-"]
-        });
+});
+        
 
     </script>
 </body>
