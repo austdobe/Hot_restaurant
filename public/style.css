@@ -12,6 +12,26 @@ h1{
     background: none;
     color: #ddd;
     border-bottom: 1px solid #666;
-
 }
 
+.card{
+    background: #444;
+    color: #ddd;
+}
+
+#main-card{
+    padding: .5em 1em;
+}
+
+.card-header{
+    background: none;
+    border-bottom: none;
+}
+
+ul.list-group.list-group-flush{
+    border: 0;
+}
+
+table{
+    background: #fff;
+}
