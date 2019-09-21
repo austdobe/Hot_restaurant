@@ -14,13 +14,14 @@ h1{
     border-bottom: 1px solid #666;
 }
 
+
+#main-card, #second-card{
+    padding: .5em 1em;
+}
+
 .card{
     background: #444;
     color: #ddd;
-}
-
-#main-card{
-    padding: .5em 1em;
 }
 
 .card-header{
