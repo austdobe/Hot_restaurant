@@ -69,6 +69,16 @@ app.get("/api/wait", function(req, res) {
     
 });
 
+app.post("/api/tables", function(req, res){
+    var newTable = req.body;
+
+    console.log(newTable);
+
+    tables.push(newTable);
+
+    res.json(newTable);
+})
+
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
