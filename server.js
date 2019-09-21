@@ -31,6 +31,12 @@ var tables = [
         phone: "919-919-9911",
         email: "mail@mailing.com",
         uniqueID: "Example"
+    },
+    {
+        name: "Tim Example",
+        phone: "919-919-9912",
+        email: "mail@mailing.com",
+        uniqueID: "Example2"
     }
 ]
 var waitlist = [
@@ -39,6 +45,12 @@ var waitlist = [
         phone: "919-919-9999",
         email: "ford@mailing.com",
         uniqueID: "Example2"
+    },
+    {
+        name: "Jerry Ford",
+        phone: "919-919-9998",
+        email: "ford@mailing.com",
+        uniqueID: "Example3"
     }
 ]
 
