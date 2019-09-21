@@ -7,21 +7,6 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-<<<<<<< HEAD
-//Emailing when table is ready
-var mailer = require('node-mailer');
-
-new mailer.Mail({
-	from: 'noreply@domain.com',
-	to: 'username@domain.com',
-	subject: 'My Subject',
-	body: 'My body',
-	callback: function(err, data){
-		console.log(err);
-		console.log(data);
-	}
-});
-=======
 // //emailing when ready
 // var mailer = require('node-mailer');
 
@@ -35,7 +20,6 @@ new mailer.Mail({
 // 		console.log(data);
 // 	}
 // });
->>>>>>> origin/master
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -105,7 +89,6 @@ app.post("/api/wait", function(req,res){
 
     res.json(newWait);
 })
-
 // Starts the server to begin listening
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
