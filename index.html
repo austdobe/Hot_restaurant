@@ -17,8 +17,8 @@
                     <hr>
                     <h4 class="text-center">Book your seat before they're all gone!</h4>
                     <div style="display: flex; justify-content: center;">
-                        <a href="view.html"><button id="viewTables" class="btn btn-primary m-1">View Tables</button></a>
-                        <a href="make.html"><button id="reservation" class="btn btn-danger m-1">Make Reservation</button></a>
+                        <a href="/table"><button id="viewTables" class="btn btn-primary m-1">View Tables</button></a>
+                        <a href="/reservation"><button id="reservation" class="btn btn-danger m-1">Make Reservation</button></a>
                     </div>
                 </div>
                 <a href="#">API Table Link</a> | <a href="#">API Wait List Link</a>
@@ -28,21 +28,5 @@
 </body>
 
 <script>
-    $("addBtn").on("click", function(){
-        event.preventDefault();
-        var newTable = {
-            name: $("name").val().trim(),
-            phone: $("phone").val().trim(),
-            email: $("email").val().trim(),
-            uniqueID: $("uniqueID").val().trim()
-        };
-
-        if (tables.length < 5){
-            $.post("/api/tables", newTable)
-            .then(function(data){
-                console.log("Table added")
-            })
-        }
-    })
 </script>
 </html>
