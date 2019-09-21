@@ -1,0 +1,23 @@
+{
+  "name": "hot_restaurant",
+  "version": "1.0.0",
+  "description": "Collaborative class activity",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austdobe/Hot_restaurant.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/austdobe/Hot_restaurant/issues"
+  },
+  "homepage": "https://github.com/austdobe/Hot_restaurant#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
