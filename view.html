@@ -84,7 +84,7 @@
     $.get("/api/wait", function(data){
         console.log(data)
         for(var i = 0; i < data.length; i ++ ){ 
-            var tableNumber = (i + 1)
+            var tableNumber = (i + 6)
             $(".waitList").append(
                 "<thead><tr><th>Table: " + tableNumber + "</th></tr></thead><tbody>tr><td>Name: " + data[i].name + "</td></tr>" + "<tr>\n<td>Phone: " + data[i].phone + "</td></tr>"+ "<tr>\n<td>Email: " + data[i].email + "</td></tr>" + "<tr>\n<td>ID: " + data[i].uniqueID + "</td></tr></tbody>")
         }
