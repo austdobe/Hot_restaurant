@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/austdobe/Hot_restaurant#readme",
   "dependencies": {
+    "cleave.js": "^1.5.3",
     "express": "^4.17.1",
     "node-mailer": "^0.1.1"
   }
