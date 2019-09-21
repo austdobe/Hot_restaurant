@@ -7,6 +7,7 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+<<<<<<< HEAD
 //Emailing when table is ready
 var mailer = require('node-mailer');
 
@@ -20,6 +21,21 @@ new mailer.Mail({
 		console.log(data);
 	}
 });
+=======
+// //emailing when ready
+// var mailer = require('node-mailer');
+
+// new mailer.Mail({
+// 	from: 'noreply@domain.com',
+// 	to: 'username@domain.com',
+// 	subject: 'My Subject',
+// 	body: 'My body',
+// 	callback: function(err, data){
+// 		console.log(err);
+// 		console.log(data);
+// 	}
+// });
+>>>>>>> origin/master
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -48,12 +64,12 @@ app.get("/", function(req, res) {
 });
 
 app.get("/reservation", function(req, res) {
-    res.json("reservation")
-    // res.sendFile(path.join(__dirname, "reservation.html"));
+    // res.json("reservation")
+    res.sendFile(path.join(__dirname, "make.html"));
 });
 
 app.get("/table", function(req, res) {
-    res.sendFile(path.join(__dirname, "tables.html"));
+    res.sendFile(path.join(__dirname, "view.html"));
 });
 
 app.get("/api/tables", function(req, res) {
@@ -69,10 +85,25 @@ app.post("/api/tables", function(req, res){
     var newTable = req.body;
 
     console.log(newTable);
-
-    tables.push(newTable);
+    if (tables.length < 5){
+        tables.push(newTable);    
+    }
+    else{
+        waitlist.push(newTable);
+    }
+    
 
     res.json(newTable);
+})
+
+app.post("/api/wait", function(req,res){
+    var newWait = req.body;
+
+    console.log(newWait);
+
+    waitlist.push(newWait);
+
+    res.json(newWait);
 })
 
 // Starts the server to begin listening
