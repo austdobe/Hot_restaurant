@@ -31,31 +31,13 @@
                         Current Reservations
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
+                        <td class="list-group-item">
                             <div class="card">
-                                <table class="table table-borderless">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Table #</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr> 
-                                            <td >ID:</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Name:</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Email:</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Phone:</td>
-                                        </tr>
-                                  </tbody>
+                                <table class="table table-borderless  tableList">
+                                    
                                 </table>
                             </div>
-                        </li>
+                        <td>
                     </ul>
                 </div>
             </div>
@@ -68,8 +50,12 @@
                             Waiting List
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
+                            <td class="list-group-item">
                                 <div class="card">
+<<<<<<< HEAD
+                                    <table class="table table-borderless waitList">
+                                        
+=======
                                     <table class="table table-borderless">
                                         <thead>
                                             <tr>
@@ -90,9 +76,10 @@
                                                 <td>Phone:</td>
                                             </tr>
                                       </tbody>
+>>>>>>> c336bae9b72eabb89cec1e2e4d238aef450a7c40
                                     </table>
                                 </div>
-                            </li>
+                            <td>
                         </ul>
                         
                     </div>
@@ -104,4 +91,23 @@
     
 </div>
 </body>
+
+<script>
+    $.get("/api/tables", function(data){
+        console.log(data)
+        for(var i = 0; i < data.length; i ++ ){ 
+            var tableNumber = (i + 1)
+            $(".tableList").append(
+                "<thead><tr><th>Table: " + tableNumber + "</th></tr></thead><tbody>tr><td>Name: " + data[i].name + "</td></tr>" + "<tr>\n<td>Phone: " + data[i].phone + "</td></tr>"+ "<tr>\n<td>Email: " + data[i].email + "</td></tr>" + "<tr>\n<td>ID: " + data[i].uniqueID + "</td></tr></tbody>")
+        }
+    })
+    $.get("/api/wait", function(data){
+        console.log(data)
+        for(var i = 0; i < data.length; i ++ ){ 
+            var tableNumber = (i + 1)
+            $(".waitList").append(
+                "<thead><tr><th>Table: " + tableNumber + "</th></tr></thead><tbody>tr><td>Name: " + data[i].name + "</td></tr>" + "<tr>\n<td>Phone: " + data[i].phone + "</td></tr>"+ "<tr>\n<td>Email: " + data[i].email + "</td></tr>" + "<tr>\n<td>ID: " + data[i].uniqueID + "</td></tr></tbody>")
+        }
+    })
+</script>
 </html>
