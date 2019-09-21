@@ -12,7 +12,7 @@ var mailer = require('node-mailer');
 
 new mailer.Mail({
 	from: 'noreply@domain.com',
-	to: 'rodolphe@domain.com',
+	to: 'username@domain.com',
 	subject: 'My Subject',
 	body: 'My body',
 	callback: function(err, data){
