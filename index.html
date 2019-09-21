@@ -23,4 +23,23 @@
         </div>
     </div>
 </body>
+
+<script>
+    $("addBtn").on("click", function(){
+        event.preventDefault();
+        var newTable = {
+            name: $("name").val().trim(),
+            phone: $("phone").val().trim(),
+            email: $("email").val().trim(),
+            uniqueID: $("uniqueID").val().trim()
+        };
+
+        if (tables.length < 5){
+            $.post("/api/tables", newTable)
+            .then(function(data){
+                console.log("Table added")
+            })
+        }
+    })
+</script>
 </html>

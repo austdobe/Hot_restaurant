@@ -42,6 +42,16 @@ app.get("/api/tables", function(req, res) {
     res.json(tables)
 });
 
+app.post("/api/tables", function(req, res){
+    var newTable = req.body;
+
+    console.log(newTable);
+
+    tables.push(newTable);
+
+    res.json(newTable);
+})
+
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
