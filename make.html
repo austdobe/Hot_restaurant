@@ -6,7 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+   
+    <!-- Me attempting to fix by adding specific file path -->
+    <script src="/node_modules/cleave.js/dist/cleave.min.js"></script>
+
+    <!-- What the docs say to use... -->
     <script src="cleave.min.js"></script>
+
     <title>Hot Restaurant - Make a Reservation</title>
 </head>
 <body>
@@ -34,7 +40,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="res-phone">Phone</label>
-                                <input type="text" class="form-control" id="res-phone" class="cleave-phone" placeholder="">
+                                <input type="text" class="form-control" id="res-phone" class="input-phone" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="res-email">Email</label>
@@ -53,11 +59,6 @@
         </div>
     </div>
     <script type="text/javascript">
-        // new Cleave('.cleave-phone', {
-        //     numericOnly: true,
-        //     blocks: [0, 3, 0, 3, 4],
-        //     delimiters: ["(", ")", " ", "-"]
-        // });
 
         $("addBtn").on("click", function(){
         event.preventDefault();
@@ -67,12 +68,22 @@
             email: $("#res-email").val().trim(),
             uniqueID: $("#res-id").val().trim()
         };
+    });
 
        $.post("/api/tables", newTable)
         .then(function(data){
             console.log("Table added")
-        })
+        });
 
+        //...Maybe need to include specific file path??? That's my only other thought...
+        var Cleave = require('cleave.js');
+
+        //There is a specific phone number formatting but it requires additional files, so I'm justing this format...
+        new Cleave('.input-phone', {
+            numericOnly: true,
+            blocks: [0, 3, 0, 3, 4],
+            delimiters: ["(", ")", " ", "-"]
+        });
 
     </script>
 </body>
